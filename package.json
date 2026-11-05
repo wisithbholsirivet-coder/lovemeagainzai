@@ -1,0 +1,7 @@
+{
+  "name": "chaecheck",
+  "private": true,
+  "type": "module",
+  "description": "Static PWA + /api/ocr proxy (Vercel Function). No build step.",
+  "engines": { "node": ">=20" }
+}

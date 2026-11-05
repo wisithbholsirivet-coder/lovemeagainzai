@@ -1,0 +1,88 @@
+Created At: 2026-08-01T20:40:34+07:00
+Completed At: 2026-08-01T20:40:34+07:00
+File Path: `file:///C:/Users/Wisithbhol%20S/.gemini/antigravity/scratch/chaecheck/js/i18n.js`
+Total Lines: 223
+Total Bytes: 14368
+Showing lines 1 to 80
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+1: /* ════════════════════════════════════════════════════
+2:    ChaeCheck · js/i18n.js
+3:    Thai / English Localization Engine
+4:    ════════════════════════════════════════════════════ */
+5: 
+6: const I18n = (() => {
+7:   const STORAGE_KEY = 'chaecheck_lang';
+8:   const DEFAULT_LANG = 'en';
+9: 
+10:   // ── Locale strings ──────────────────────────────
+11:   const locales = {
+12:     en: {
+13:       'brand.tagline':                 'Ingredient Safety',
+14:       'nav.search':                    'Search',
+15:       'nav.history':                   'History',
+16:       'nav.settings':                  'Settings',
+17:       'sidebar.guest':                 'Guest',
+18:       'scanner.badge':                 '✨ AI-Powered Safety Check',
+19:       'scanner.title':                 'Scan Ingredients',
+20:       'scanner.subtitle':              'Upload a product label photo or paste ingredient text to check safety',
+21:       'scanner.upload.title':          'Upload Label Photo',
+22:       'scanner.upload.hint':           'Drag & drop or click to browse',
+23:       'scanner.ocr.processing':        'Extracting text from image...',
+24:       'scanner.ocr.recognizing':       'Recognizing text...',
+25:       'scanner.ocr.done':              'Text extraction complete!',
+26:       'scanner.or':                    'OR',
+27:       'scanner.manual.label':          'Paste Ingredient List',
+28:       'scanner.manual.hint':           'Paste the full ingredient list, separated by commas',
+29:       'scanner.btn.scan':              'Analyze Ingredients',
+30:       'scanner.analyzing':             'Analyzing ingredients...',
+31:       'scanner.results.title':         'Analysis Results',
+32:       'scanner.results.save':          'Save',
+33:       'scanner.results.addRoutine':    'Add to Routine',
+34:       'scanner.kid.warning':           '⚠️ Some ingredients may not be safe for children under 13. Consult a dermatologist.',
+35:       'scanner.pregnancy.warning':     '🤰 Some ingredients may not be recommended during pregnancy. Consult your doctor.',
+36:       'filter.all':                    'All',
+37:       'filter.dangerous':              'Danger',
+38:       'filter.moderate':               'Moderate',
+39:       'filter.safe':                   'Safe',
+40:       'filter.unknown':                'Unknown',
+41:       'history.title':                 'Scan History',
+42:       'history.clear':                 'Clear All',
+43:       'history.empty':                 'No scans yet. Start by analyzing a product!',
+44:       'history.confirm.clear':         'Clear all scan history?',
+45:       'settings.title':                'Settings',
+46:       'settings.profile.title':        'Profile',
+47:       'settings.profile.name':         'Your Name',
+48:       'settings.profile.name.placeholder': 'Enter your name',
+49:       'settings.profile.age':          'Age',
+50:       'settings.profile.age.hint':     'Used to flag ingredients unsafe for children under 13',
+51:       'settings.profile.save':         'Save Profile',
+52:       'settings.profile.saved':        'Profile saved!',
+53:       'settings.language.title':       'Language',
+54:       'settings.theme.title':          'Appearance',
+55:       'settings.theme.darkMode':       'Dark Mode',
+56:       'settings.routine.title':        'Daily Routine',
+57:       'settings.routine.placeholder':  'e.g. CeraVe Moisturizer',
+58:       'settings.routine.add':          'Add',
+59:       'settings.routine.empty':        'No products in your routine yet',
+60:       'settings.about.title':          'About',
+61:       'settings.about.text':           'ChaeCheck uses a local database of cosmetic INCI ingredients to assess safety. For medical advice, always consult a qualified dermatologist.',
+62:       'modal.purpose':                 'Purpose',
+63:       'modal.description':             'What is it?',
+64:       'modal.concerns':                'Safety Concerns',
+65:       'modal.kids.unsafe':             '⚠️ Not recommended for children',
+66:       'modal.pregnancy.warning':       '🤰 Use caution during pregnancy',
+67:       'toast.saved':                   'Scan saved to history',
+68:       'toast.routine.added':           'Added to daily routine',
+69:       'toast.profile.saved':           'Profile saved!',
+70:       'toast.history.cleared':         'History cleared',
+71:       'toast.no.results':              'No ingredients to save',
+72:       'db.loading':                    'Loading ingredient database...',
+73:       'db.ready':                      'Database ready',
+74:       'db.error':                      'Failed to load database',
+75:       'risk.label.green':              'Safe',
+76:       'risk.label.yellow':             'Moderate',
+77:       'risk.label.red':                'Danger',
+78:       'risk.label.unknown':            'Unknown',
+79:       'error.notfound':                'The search is failed or we don\'t have database. Please try again',
+80:       'card.learn.more':               'Details →',
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

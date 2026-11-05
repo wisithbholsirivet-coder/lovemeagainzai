@@ -1,0 +1,256 @@
+/* ============================================================
+   ChaeCheck — Premium Dark Wellness UI · main.css
+   Design System: Tokens, Reset, Typography, Base Layout
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Display:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ── Design Tokens ────────────────────────────────────────── */
+:root {
+  /* Background & Surface */
+  --bg-base:         #0A0A10;
+  --bg-surface:      #0F0F1A;
+  --bg-elevated:     #141420;
+  --bg-card:         rgba(20, 20, 36, 0.75);
+  --bg-card-hover:   rgba(26, 26, 46, 0.85);
+  --bg-glass:        rgba(255, 255, 255, 0.035);
+  --bg-glass-hover:  rgba(255, 255, 255, 0.065);
+  --bg-topbar:       rgba(10, 10, 16, 0.80);
+  --bg-sidebar:      #0F0F1A;
+
+  /* Brand Gradient Palette */
+  --purple:          #8B5CF6;
+  --purple-light:    #A78BFA;
+  --purple-dim:      rgba(139, 92, 246, 0.15);
+  --lavender:        #C4B5FD;
+  --teal:            #2DD4BF;
+  --teal-dim:        rgba(45, 212, 191, 0.12);
+  --mint:            #6EE7B7;
+  --pink:            #F472B6;
+  --pink-dim:        rgba(244, 114, 182, 0.12);
+  --gold:            #FBBF24;
+
+  /* Gradients */
+  --grad-primary:    linear-gradient(135deg, #8B5CF6 0%, #2DD4BF 100%);
+  --grad-hero:       linear-gradient(135deg, #6D28D9 0%, #0D9488 100%);
+  --grad-cta:        linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+  --grad-pink:       linear-gradient(135deg, #BE185D 0%, #7C3AED 100%);
+  --grad-gold:       linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+  --grad-safe:       linear-gradient(135deg, #059669 0%, #10B981 100%);
+  --grad-caution:    linear-gradient(135deg, #D97706 0%, #F59E0B 100%);
+  --grad-danger:     linear-gradient(135deg, #DC2626 0%, #F87171 100%);
+  --grad-unknown:    linear-gradient(135deg, #4B5563 0%, #6B7280 100%);
+
+  /* Text */
+  --text-primary:    #F0EFFF;
+  --text-secondary:  rgba(240, 239, 255, 0.65);
+  --text-tertiary:   rgba(240, 239, 255, 0.38);
+  --text-inverse:    #0A0A10;
+
+  /* Borders */
+  --border-subtle:   rgba(255, 255, 255, 0.06);
+  --border-medium:   rgba(255, 255, 255, 0.10);
+  --border-accent:   rgba(139, 92, 246, 0.30);
+  --border-teal:     rgba(45, 212, 191, 0.25);
+
+  /* Glow & Shadows */
+  --glow-purple:     0 0 40px rgba(139, 92, 246, 0.22), 0 0 80px rgba(139, 92, 246, 0.08);
+  --glow-teal:       0 0 40px rgba(45, 212, 191, 0.18), 0 0 80px rgba(45, 212, 191, 0.06);
+  --glow-pink:       0 0 40px rgba(244, 114, 182, 0.18);
+  --shadow-card:     0 4px 24px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-modal:    0 24px 80px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.5);
+
+  /* Radius */
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --radius-2xl:  36px;
+  --radius-full: 9999px;
+
+  /* Spacing (8px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Typography */
+  --font-display:  'Cormorant Display', 'Sarabun', Georgia, serif;
+  --font-body:     'Manrope', 'Sarabun', system-ui, sans-serif;
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast:   150ms;
+  --t-normal: 280ms;
+  --t-slow:   450ms;
+
+  /* Layout */
+  --sidebar-w: 220px;
+  --topbar-h:  64px;
+  --bottomnav-h: 72px;
+}
+
+/* Light theme override */
+[data-theme="light"] {
+  --bg-base:        #F0EEFF;
+  --bg-surface:     #E8E4FF;
+  --bg-elevated:    #FFFFFF;
+  --bg-card:        rgba(255, 255, 255, 0.88);
+  --bg-card-hover:  rgba(255, 255, 255, 0.98);
+  --bg-glass:       rgba(139, 92, 246, 0.05);
+  --bg-glass-hover: rgba(139, 92, 246, 0.09);
+  --bg-topbar:      rgba(240, 238, 255, 0.88);
+  --bg-sidebar:     #FFFFFF;
+  --text-primary:   #1A1730;
+  --text-secondary: rgba(26, 23, 48, 0.65);
+  --text-tertiary:  rgba(26, 23, 48, 0.38);
+  --border-subtle:  rgba(139, 92, 246, 0.10);
+  --border-medium:  rgba(139, 92, 246, 0.18);
+  --shadow-card:    0 4px 24px rgba(139, 92, 246, 0.12), 0 1px 4px rgba(0,0,0,0.06);
+  --shadow-elevated:0 8px 40px rgba(139, 92, 246, 0.18), 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ── Reset ────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; height: 100%; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Ambient Background Blobs ─────────────────────────────── */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 0;
+  animation: blobDrift 18s ease-in-out infinite alternate;
+}
+body::before {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, #7C3AED, transparent 70%);
+  top: -200px; left: -150px;
+}
+body::after {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #0D9488, transparent 70%);
+  bottom: -150px; right: -100px;
+  animation-delay: -9s;
+  animation-duration: 22s;
+}
+[data-theme="light"] body::before,
+[data-theme="light"] body::after { opacity: 0.09; }
+[data-theme="light"] body::before {
+  background: radial-gradient(circle, #9333EA, transparent 70%);
+}
+[data-theme="light"] body::after {
+  background: radial-gradient(circle, #0891B2, transparent 70%);
+}
+@keyframes blobDrift {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(40px, 30px) scale(1.08); }
+  100% { transform: translate(-20px, 50px) scale(0.95); }
+}
+
+/* ── Typography ───────────────────────────────────────────── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 500; }
+h3 { font-size: 1.2rem; font-weight: 500; }
+h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
+p  { color: var(--text-secondary); line-height: 1.7; }
+a  { color: var(--purple-light); text-decoration: none; }
+
+/* ── Main App Layout ──────────────────────────────────────── */
+.app-root {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-left: var(--sidebar-w);
+  position: relative;
+}
+
+/* views-container grows to fill remaining space below topbar */
+.views-container {
+  flex: 1;
+  min-height: 0;          /* critical: lets flex child shrink below content */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each view is hidden by default using display:none (no z-index/absolute tricks) */
+.view {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.28s var(--ease-smooth),
+              transform 0.28s var(--ease-smooth);
+}
+.view.active {
+  display: flex;          /* show the active view */
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* view-scroll: fills the view and scrolls normally */
+.view-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--space-8) var(--space-8) calc(var(--space-8) + var(--bottomnav-h));
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-medium) transparent;
+}
+.view-scroll::-webkit-scrollbar { width: 4px; }
+.view-scroll::-webkit-scrollbar-track { background: transparent; }
+.view-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+/* ── Scrollbar Global ─────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+[hidden] { display: none !important; }

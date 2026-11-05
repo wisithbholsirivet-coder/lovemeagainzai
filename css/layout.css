@@ -1,0 +1,206 @@
+/* =============================================
+   ChaeCheck – Layout CSS
+   Grid/Flexbox responsive layout (mobile + desktop)
+   ============================================= */
+
+/* ── App Shell ── */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ── Main Content Area ── */
+#main-content {
+  flex: 1;
+  padding: var(--space-4);
+  padding-bottom: calc(var(--bottom-nav-h) + var(--space-6));
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* View panels container */
+.view-panel {
+  display: none;
+  animation: fade-in var(--transition-normal);
+}
+
+.view-panel.active {
+  display: block;
+}
+
+/* ── Mobile Bottom Navigation ── */
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottom-nav-h);
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  gap: 4px;
+  flex: 1;
+  height: 100%;
+  transition: color var(--transition-fast);
+}
+
+.nav-btn i {
+  font-size: 24px;
+  transition: transform var(--transition-spring);
+}
+
+.nav-btn span {
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+}
+
+.nav-btn.active {
+  color: var(--accent);
+}
+
+.nav-btn.active i {
+  transform: translateY(-2px);
+}
+
+/* ── Desktop Sidebar ── */
+#sidebar-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--bg-surface);
+  border-right: 1px solid var(--border);
+  flex-direction: column;
+  padding: var(--space-6) var(--space-4);
+  z-index: 100;
+}
+
+.sidebar-brand {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-black);
+  color: var(--text-primary);
+  margin-bottom: var(--space-10);
+  padding: 0 var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.sidebar-brand i {
+  color: var(--accent);
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.sidebar-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.sidebar-btn.active {
+  background: var(--accent-muted);
+  color: var(--accent);
+}
+
+.sidebar-btn i {
+  font-size: 20px;
+}
+
+/* ── Desktop Theme Toggle ── */
+#desktop-theme-toggle {
+  display: none;
+  position: fixed;
+  top: var(--space-6);
+  right: var(--space-6);
+  z-index: 100;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+#desktop-theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--border-accent);
+}
+
+#desktop-theme-toggle i.fa-sun {
+  display: none;
+}
+
+[data-theme="dark"] #desktop-theme-toggle i.fa-sun {
+  display: block;
+}
+
+[data-theme="dark"] #desktop-theme-toggle i.fa-moon {
+  display: none;
+}
+
+/* ── Responsive Breakpoints ── */
+@media (min-width: 768px) {
+  #bottom-nav {
+    display: none;
+  }
+
+  #sidebar-nav {
+    display: flex;
+  }
+
+  #main-content {
+    margin-left: var(--sidebar-width);
+    padding: var(--space-10) var(--space-8);
+    max-width: calc(100% - var(--sidebar-width));
+  }
+
+  .view-panel {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  #desktop-theme-toggle {
+    display: flex;
+  }
+}

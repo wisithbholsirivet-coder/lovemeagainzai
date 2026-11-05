@@ -1,0 +1,122 @@
+[
+  {
+    "id": "glyceryl-rosinate",
+    "names": ["GLYCERYL ROSINATE"],
+    "risk": "green",
+    "category": "Emollient",
+    "purpose": "Skin conditioning agent and fragrance ingredient.",
+    "concerns": [],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Glyceryl Rosinate is an ester of glycerin and rosin. It functions as a skin-conditioning agent, surfactant, and fragrance ingredient.",
+    "description_th": "กลีเซอริล โรซิเนตเป็นเอสเทอร์ของกลีเซอรีนและโรซิน ทำหน้าที่ปรับสภาพผิว สารลดแรงตึงผิว และส่วนผสมน้ำหอม"
+  },
+  {
+    "id": "hydrolyzed-hyaluronic-acid",
+    "names": ["HYDROLYZED HYALURONIC ACID"],
+    "risk": "green",
+    "category": "Humectant",
+    "purpose": "Low molecular weight HA for deeper penetration.",
+    "concerns": [],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Hydrolyzed Hyaluronic Acid is a smaller version of HA that can penetrate deeper into the skin for intense hydration.",
+    "description_th": "กรดไฮยาลูโรนิกที่ถูกย่อยให้มีขนาดเล็กลง ซึมซาบเข้าสู่ผิวได้ลึกขึ้นเพื่อให้ความชุ่มชื้นอย่างล้ำลึก"
+  },
+  {
+    "id": "hydrogenated-polyisobutene",
+    "names": ["HYDROGENATED POLYISOBUTENE"],
+    "risk": "green",
+    "category": "Emollient",
+    "purpose": "Synthetic oil that acts as a squalane alternative.",
+    "concerns": [],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Hydrogenated Polyisobutene is a synthetic oil that helps retain moisture and improve skin texture, often used as a substitute for mineral oil or squalane.",
+    "description_th": "ไฮโดรจีเนท โพลีไอโซบิวทีนเป็นน้ำมันสังเคราะห์ที่ช่วยกักเก็บความชุ่มชื้นและปรับปรุงเนื้อผิว มักใช้แทนน้ำมันแร่หรือสควาเลน"
+  },
+  {
+    "id": "hydrogenated-lecithin",
+    "names": ["HYDROGENATED LECITHIN"],
+    "risk": "green",
+    "category": "Emulsifier",
+    "purpose": "Skin-restoring ingredient and emulsifier.",
+    "concerns": [],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Hydrogenated Lecithin is a phospholipid that helps restore the skin barrier, improve hydration, and emulsify products.",
+    "description_th": "ไฮโดรจีเนท เลซิตินเป็นฟอสโฟลิพิดที่ช่วยฟื้นฟูเกราะป้องกันผิว เพิ่มความชุ่มชื้น และเป็นสารช่วยประสาน"
+  },
+  {
+    "id": "isopropyl-myristate",
+    "names": ["ISOPROPYL MYRISTATE"],
+    "risk": "yellow",
+    "category": "Emollient",
+    "purpose": "Enhances penetration but can be comedogenic.",
+    "concerns": ["Comedogenic potential"],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Isopropyl Myristate helps other ingredients penetrate the skin more effectively, but it can clog pores for some individuals.",
+    "description_th": "ไอโซโพรพิล ไมริสเตทช่วยให้ส่วนผสมอื่นซึมเข้าสู่ผิวได้ดีขึ้น แต่อาจทำให้อุดตันรูขุมขนในบางคน"
+  },
+  {
+    "id": "isopropyl-palmitate",
+    "names": ["ISOPROPYL PALMITATE"],
+    "risk": "yellow",
+    "category": "Emollient",
+    "purpose": "Thickening agent and emollient, potentially comedogenic.",
+    "concerns": ["Comedogenic potential"],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Isopropyl Palmitate is a palm oil derivative used to moisturize skin, but it has a high likelihood of clogging pores.",
+    "description_th": "ไอโซโพรพิล ปาล์มมิเตทเป็นสารสกัดจากน้ำมันปาล์มใช้เพื่อเพิ่มความชุ่มชื้น แต่อาจมีโอกาสสูงที่จะทำให้เกิดการอุดตัน"
+  },
+  {
+    "id": "kaolin",
+    "names": ["KAOLIN", "White Clay"],
+    "risk": "green",
+    "category": "Absorbent",
+    "purpose": "Gentle clay that absorbs excess oil.",
+    "concerns": [],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Kaolin is a gentle, naturally occurring white clay that absorbs excess sebum and impurities without overdrying the skin.",
+    "description_th": "คาโอลินคือดินเหนียวสีขาวธรรมชาติที่อ่อนโยน ช่วยดูดซับความมันส่วนเกินและสิ่งสกปรกโดยไม่ทำให้ผิวแห้งเกินไป"
+  },
+  {
+    "id": "kojic-acid",
+    "names": ["KOJIC ACID"],
+    "risk": "yellow",
+    "category": "Brightening",
+    "purpose": "Skin-lightening agent from fungi.",
+    "concerns": ["May cause irritation", "Increases sun sensitivity"],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Kojic Acid is derived from certain fungi and helps lighten visible sun damage, age spots, or scars by inhibiting melanin production.",
+    "description_th": "กรดโคจิกได้จากเชื้อราบางชนิด ช่วยลดเลือนจุดด่างดำและรอยแผลเป็นโดยยับยั้งการสร้างเม็ดสีเมลานิน"
+  },
+  {
+    "id": "lactic-acid",
+    "names": ["LACTIC ACID"],
+    "risk": "yellow",
+    "category": "Exfoliant (AHA)",
+    "purpose": "Gentle AHA that exfoliates and hydrates.",
+    "concerns": ["Increases sun sensitivity"],
+    "kidsUnsafe": false,
+    "pregnancyWarning": true,
+    "description_en": "Lactic Acid is an Alpha Hydroxy Acid (AHA) derived from milk. It exfoliates dead skin cells while also drawing moisture to the skin.",
+    "description_th": "กรดแลคติกเป็นกรด AHA ที่ได้จากนม ช่วยผลัดเซลล์ผิวที่ตายแล้วพร้อมกับเพิ่มความชุ่มชื้นให้แก่ผิว"
+  },
+  {
+    "id": "glycyrrhiza-glabra-root-extract",
+    "names": ["GLYCYRRHIZA GLABRA ROOT EXTRACT", "Licorice Root Extract"],
+    "risk": "green",
+    "category": "Botanical Extract",
+    "purpose": "Brightening and soothing extract.",
+    "concerns": [],
+    "kidsUnsafe": false,
+    "pregnancyWarning": false,
+    "description_en": "Licorice Root Extract contains glabridin, which helps fade hyperpigmentation, and glycyrrhizin, which soothes redness and irritation.",
+    "description_th": "สารสกัดจากรากชะเอมเทศมีสารแกลบริดินที่ช่วยลดรอยดำ และกลีเซอริซินที่ช่วยปลอบประโลมลดรอยแดงและการระคายเคือง"
+  }
+]

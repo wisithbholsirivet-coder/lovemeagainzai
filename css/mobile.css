@@ -1,0 +1,181 @@
+/* ============================================================
+   ChaeCheck — mobile.css
+   Mobile-first layout, bottom nav, responsive overrides
+   ============================================================ */
+
+/* ── Mobile: Hide sidebar, show bottom nav ────────────────── */
+@media (max-width: 767px) {
+
+  .sidebar {
+    display: none;
+  }
+
+  .main-wrapper {
+    margin-left: 0;
+  }
+
+  /* Bottom navigation bar */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: var(--bottomnav-h);
+    background: var(--bg-topbar);
+    border-top: 1px solid var(--border-subtle);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    z-index: 100;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-tertiary);
+    transition: color var(--t-normal), transform var(--t-fast);
+    padding: 8px 0;
+    position: relative;
+  }
+  .bottom-nav-item::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 25%; right: 25%;
+    height: 2px;
+    background: var(--grad-primary);
+    border-radius: 0 0 var(--radius-full) var(--radius-full);
+    opacity: 0;
+    transition: opacity var(--t-normal);
+  }
+  .bottom-nav-item.active {
+    color: var(--purple-light);
+  }
+  .bottom-nav-item.active::after { opacity: 1; }
+  .bottom-nav-item:active { transform: scale(0.92); }
+
+  .bnav-icon { font-size: 1.4rem; }
+  .bnav-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Topbar */
+  .topbar {
+    padding: 0 var(--space-5);
+    height: 56px;
+  }
+  .topbar-title { font-size: 1rem; }
+
+  /* Hero section */
+  .hero-section {
+    padding: var(--space-8) var(--space-4) var(--space-6);
+  }
+  .hero-section h1 { font-size: 2rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+
+  /* View scroll — account for bottom nav */
+  .view-scroll {
+    padding: var(--space-5) var(--space-4) calc(var(--bottomnav-h) + var(--space-6));
+  }
+
+  /* Cards full width */
+  .ingredient-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  /* Input cards */
+  .input-card {
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Upload zone smaller */
+  .upload-zone { padding: var(--space-8) var(--space-5); }
+  .upload-icon { font-size: 2.2rem; }
+
+  /* Buttons */
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .results-actions { width: 100%; }
+  .results-actions .btn { flex: 1; justify-content: center; }
+
+  /* Modal full-height sheet */
+  .modal {
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    max-height: 92vh;
+  }
+  .modal-body {
+    padding: var(--space-5) var(--space-5) calc(var(--space-8) + env(safe-area-inset-bottom, 0px));
+  }
+  .modal-ingredient-name { font-size: 1.35rem; }
+
+  /* Settings */
+  .settings-card { border-radius: var(--radius-lg); }
+  .routine-add-form { flex-direction: column; }
+  .lang-toggle-group { flex-direction: column; }
+  .lang-btn { justify-content: center; }
+
+  /* Risk filter scroll horizontal */
+  .risk-filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+    scrollbar-width: none;
+  }
+  .risk-filter-bar::-webkit-scrollbar { display: none; }
+  .risk-filter { flex-shrink: 0; }
+
+  /* Summary chips */
+  .summary-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-1);
+    scrollbar-width: none;
+  }
+  .summary-chips::-webkit-scrollbar { display: none; }
+
+  /* Toast */
+  .toast {
+    bottom: calc(var(--bottomnav-h) + var(--space-4));
+    width: calc(100% - var(--space-8));
+    text-align: center;
+  }
+
+  /* Hide desktop-only elements on mobile */
+  .mobile-only { display: block !important; }
+  .desktop-only { display: none !important; }
+}
+
+/* ── Tablet (768–1024px) ──────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root { --sidebar-w: 180px; }
+
+  .view-scroll { padding: var(--space-6) var(--space-6) var(--space-8); }
+
+  .ingredient-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-section {
+    padding: var(--space-10) var(--space-6) var(--space-8);
+  }
+}
+
+/* ── Desktop hide mobile-only ────────────────────────────── */
+@media (min-width: 768px) {
+  .mobile-only { display: none !important; }
+}

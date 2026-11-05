@@ -1,0 +1,106 @@
+/* ============================================================
+   ChaeCheck — desktop.css
+   Desktop sidebar layout & desktop-specific overrides
+   ============================================================ */
+
+/* ── Desktop: Sidebar visible ─────────────────────────────── */
+@media (min-width: 768px) {
+
+  .sidebar {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .main-wrapper {
+    margin-left: var(--sidebar-w);
+  }
+
+  .bottom-nav {
+    display: none !important;
+  }
+
+  /* Remove bottom-nav padding on desktop */
+  .view-scroll {
+    padding-bottom: var(--space-10);
+  }
+
+  /* Wider modal on desktop — centered */
+  .modal-overlay {
+    align-items: center;
+    padding: var(--space-8);
+  }
+  .modal {
+    border-radius: var(--radius-2xl);
+    max-height: 85vh;
+  }
+  .modal::before { display: none; }
+  .modal-overlay--hidden .modal {
+    transform: scale(0.96) translateY(8px);
+  }
+
+  /* Hero more spacious */
+  .hero-section {
+    padding: var(--space-16) var(--space-8) var(--space-10);
+  }
+
+  /* Grid expands on wide screens */
+  .ingredient-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+
+  /* Toast above sidebar */
+  .toast {
+    bottom: var(--space-8);
+    left: calc(var(--sidebar-w) + 50%);
+    transform: translateX(-50%) translateY(100px);
+  }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Larger view content area */
+  .view-scroll {
+    padding: var(--space-8) var(--space-10) var(--space-12);
+  }
+
+  /* Settings grid on wider screens */
+  @media (min-width: 1100px) {
+    .ingredient-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+  }
+}
+
+/* ── Ultra-wide sidebar enhancements ─────────────────────── */
+@media (min-width: 1200px) {
+  :root { --sidebar-w: 240px; }
+
+  .sidebar-nav-item {
+    padding: var(--space-3) var(--space-5);
+  }
+
+  .view-scroll {
+    padding: var(--space-10) var(--space-12) var(--space-12);
+  }
+}
+
+/* ── Sidebar bottom area (version info) ───────────────────── */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+}
+.sidebar-footer-version {
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.sidebar-footer-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  display: inline-block;
+  margin-right: 6px;
+  box-shadow: 0 0 6px var(--teal);
+}

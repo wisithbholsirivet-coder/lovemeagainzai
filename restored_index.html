@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ChaeCheck – ตรวจสอบส่วนผสมเครื่องสำอางเพื่อความปลอดภัย | Cosmetic Ingredient Safety Scanner" />
+  <meta name="keywords" content="cosmetic, ingredient, safety, scanner, skincare, INCI, เครื่องสำอาง, ส่วนผสม" />
+  <meta name="theme-color" content="#0A0A10" />
+  <title>ChaeCheck | Cosmetic Ingredient Safety Scanner</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Display:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/desktop.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+</head>
+<body>
+
+  <!-- ══ DESKTOP SIDEBAR ══════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar" role="complementary" aria-label="Main navigation">
+    <div class="sidebar-brand">
+      <div class="brand-logo" aria-hidden="true">✦</div>
+      <div class="brand-text">
+        <span class="brand-name">ChaeCheck</span>
+        <span class="brand-tagline" data-i18n="brand.tagline">Ingredient Safety</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" role="navigation">
+      <button class="sidebar-nav-item active" data-view="scanner" id="snav-scanner" aria-current="page">
+        <span class="nav-icon" aria-hidden="true">🔍</span>
+        <span class="nav-label" data-i18n="nav.search">Search</span>
+        <span class="nav-indicator"></span>
+      </button>
+      <button class="sidebar-nav-item" data-view="history" id="snav-history">
+        <span class="nav-icon" aria-hidden="true">📋</span>
+        <span class="nav-label" data-i18n="nav.history">History</span>
+        <span class="nav-indicator"></span>
+      </button>
+      <button class="sidebar-nav-item" data-view="settings" id="snav-settings">
+        <span class="nav-icon" aria-hidden="true">⚙️</span>
+        <span class="nav-label" data-i18n="nav.settings">Settings</span>
+        <span class="nav-indicator"></span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <p class="sidebar-footer-version">
+        <span class="sidebar-footer-dot" aria-hidden="true"></span>
+        v5.7 · 970+ ingredients | Ref : INCI 
+      </p>
+    </div>
+  </aside>
+
+  <!-- ══ MAIN WRAPPER ═════════════════════════════════════ -->
+  <div class="main-wrapper" id="main-wrapper">
+
+    <!-- Top Bar -->
+    <header class="topbar" id="topbar">
+      <div class="topbar-left">
+        <div class="topbar-title" id="topbar-title" data-i18n="nav.search">Search</div>
+      </div>
+      <div class="topbar-right">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb" id="theme-thumb">🌙</span>
+          </span>
+        </button>
+        <div class="db-status-dot" id="db-status-dot" title="Loading database…" aria-label="Database status"></div>
+      </div>
+    </header>
+
+    <!-- ══ VIEWS CONTAINER ══════════════════════════════════ -->
+    <main class="views-container" id="views-container">
+
+      <!-- ── VIEW: SCANNER ──────────────────────────────── -->
+      <section class="view active" id="view-scanner" role="main" aria-labelledby="scanner-heading">
+        <div class="view-scroll">
+
+          <!-- Hero -->
+          <div class="hero-section">
+            <h1 id="scanner-heading" data-i18n="scanner.title">Scan Ingredients</h1>
+          </div>
+
+          <!-- Scanner Hero Card (decorative, no functional elements inside) -->
+          <div class="scanner-hero-card">
+            <h2 data-i18n="scanner.hero.title">Ingredient Safety Scanner</h2>
+            <p data-i18n="scanner.hero.subtitle">Upload a product label photo or paste ingredient text to check safety</p>
+          </div>
+
+          <!-- Glare Tip Banner (Step 5: UX guidance for metallic packaging) -->
+          <div class="glare-tip-banner" id="glare-tip-banner" role="note" aria-label="Photography tips">
+            <button class="glare-tip-toggle" id="glare-tip-toggle" aria-expanded="false" aria-controls="glare-tip-body">
+              <span class="glare-tip-icon" aria-hidden="true">💡</span>
+              <span class="glare-tip-title">Tips for glossy / metallic packaging</span>
+              <span class="glare-tip-chevron" aria-hidden="true">▾</span>
+            </button>
+            <ul class="glare-tip-body" id="glare-tip-body" hidden>
+              <li>📐 <strong>Lay flat</strong> — place product on flat surface, shoot straight down</li>
+              <li>💡 <strong>Diffuse light</strong> — shoot near a window with overcast light; avoid direct flash</li>
+              <li>📄 <strong>White paper trick</strong> — slide white card next to product to bounce soft fill light onto label</li>
+              <li>🔄 <strong>Tilt slightly</strong> — angle product 5–10° to move specular glare off the text area</li>
+              <li>🔍 <strong>Fill the frame</strong> — get close so the ingredient list takes up 80%+ of the photo</li>
+            </ul>
+          </div>
+
+          <!-- Upload Zone Card -->
+          <div class="input-card" id="upload-card">
+            <div class="upload-zone" id="upload-zone" tabindex="0" role="button" aria-label="Upload product label image">
+              <div class="upload-preview" id="upload-preview" hidden>
+                <img id="preview-img" src="" alt="Uploaded label" />
+                <button class="upload-clear-btn" id="upload-clear" aria-label="Remove image">✕</button>
+              </div>
+              <div class="upload-placeholder" id="upload-placeholder">
+                <span class="upload-icon" aria-hidden="true">📸</span>
+                <p class="upload-title" data-i18n="scanner.upload.title">Upload Label Photo</p>
+                <p class="upload-hint" data-i18n="scanner.upload.hint">Drag &amp; drop or click to browse</p>
+                <div class="upload-formats">JPG · PNG · WEBP · HEIC</div>
+              </div>
+              <input type="file" id="file-input" accept="image/*" hidden />
+            </div>
+
+            <div class="ocr-progress" id="ocr-progress" hidden aria-live="polite">
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+              </div>
+              <p class="progress-text" id="progress-text" data-i18n="scanner.ocr.processing">Extracting text from image…</p>
+            </div>
+          </div>
+
+          <!-- Curved Label Tip -->
+          <details class="curved-label-tip" id="curved-label-tip">
+            <summary class="curved-label-tip__toggle">
+              📷 <span data-i18n="tip.curved.title">Tips for curved packaging</span>
+              <span class="curved-label-tip__arrow">›</span>
+            </summary>
+            <ul class="curved-label-tip__list">
+              <li>🔆 <strong>Bright even light</strong> — avoid harsh shadows across the label</li>
+              <li>📐 <strong>Lay it flat</strong> — press tube/bottle against a flat surface</li>
+              <li>✂️ <strong>Crop tight</strong> — crop so only the ingredient list fills the frame</li>
+              <li>🔍 <strong>Highest resolution</strong> — use your phone's main camera</li>
+              <li>✏️ <strong>Still not working?</strong> — paste the text manually below</li>
+            </ul>
+          </details>
+
+          <!-- OR Divider -->
+          <div class="divider-or" aria-hidden="true">
+            <div class="divider-line"></div>
+            <span data-i18n="scanner.or">OR</span>
+            <div class="divider-line"></div>
+          </div>
+
+          <!-- Manual Input Card -->
+          <div class="input-card">
+            <label class="input-label" for="manual-input" data-i18n="scanner.manual.label">Paste Ingredient List</label>
+            <textarea id="manual-input" class="ingredient-textarea" rows="5"
+              aria-label="Paste cosmetic ingredient list"
+              placeholder="e.g. Water, Niacinamide, Glycerin, Hyaluronic Acid…"></textarea>
+            <p class="input-hint" data-i18n="scanner.manual.hint">Paste the full ingredient list, separated by commas</p>
+            <button class="btn btn-primary btn-full btn-lg" id="scan-btn">
+              <span aria-hidden="true">🔬</span>
+              <span data-i18n="scanner.btn.scan">Analyze Ingredients</span>
+            </button>
+          </div>
+
+
+          <!-- Analyzing Spinner -->
+          <div class="scan-loading" id="scan-loading" hidden aria-live="polite">
+            <div class="spinner"></div>
+            <p data-i18n="scanner.analyzing">Analyzing ingredients…</p>
+          </div>
+
+          <!-- Results -->
+          <div class="results-section" id="results-section" hidden aria-live="polite">
+            <div class="results-header">
+              <h2 data-i18n="scanner.results.title">Ingredients cards</h2>
+              <div class="results-actions">
+                <button class="btn btn-ghost btn-sm" id="save-scan-btn">
+                  <span aria-hidden="true">💾</span>
+                  <span data-i18n="scanner.results.save">Save</span>
+                </button>
+                <button class="btn btn-ghost btn-sm" id="add-to-routine-scan-btn">
+                  <span aria-hidden="true">📅</span>
+                  <span data-i18n="scanner.results.addRoutine">Add to Routine</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="summary-chips" id="summary-chips" aria-label="Scan summary"></div>
+
+            <div class="kid-warning-banner" id="kid-warning-banner" hidden role="alert">
+              <span aria-hidden="true">⚠️</span>
+              <span data-i18n="scanner.kid.warning">Some ingredients may not be safe for children. Consult a dermatologist.</span>
+            </div>
+            <div class="pregnancy-warning-banner" id="pregnancy-warning-banner" hidden role="alert">
+              <span aria-hidden="true">🤰</span>
+              <span data-i18n="scanner.pregnancy.warning">Some ingredients may not be safe during pregnancy. Consult your doctor.</span>
+            </div>
+
+            <div class="risk-filter-bar" role="group" aria-label="Filter by risk level">
+              <button class="risk-filter active" data-filter="all" aria-pressed="true" data-i18n="filter.all">All</button>
+              <button class="risk-filter risk-filter--red" data-filter="red" aria-pressed="false">
+                <span aria-hidden="true">🔴</span> <span data-i18n="filter.dangerous">Danger</span>
+              </button>
+              <button class="risk-filter risk-filter--yellow" data-filter="yellow" aria-pressed="false">
+                <span aria-hidden="true">🟡</span> <span data-i18n="filter.moderate">Moderate</span>
+              </button>
+              <button class="risk-filter risk-filter--green" data-filter="green" aria-pressed="false">
+                <span aria-hidden="true">🟢</span> <span data-i18n="filter.safe">Safe</span>
+              </button>
+              <button class="risk-filter risk-filter--unknown" data-filter="unknown" aria-pressed="false">
+                <span aria-hidden="true">❓</span> <span data-i18n="filter.unknown">Unknown</span>
+              </button>
+            </div>
+
+            <div class="ingredient-grid" id="ingredient-grid" role="list"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── VIEW: HISTORY ──────────────────────────────── -->
+      <section class="view" id="view-history" role="region" aria-labelledby="history-heading">
+        <div class="view-scroll">
+          <div class="view-header">
+            <h2 id="history-heading" data-i18n="history.title">Scan History</h2>
+            <button class="btn btn-ghost btn-sm btn-danger" id="clear-history-btn">
+              <span aria-hidden="true">🗑️</span>
+              <span data-i18n="history.clear">Clear All</span>
+            </button>
+          </div>
+          <div class="history-list" id="history-list" role="list">
+            <div class="empty-state" id="history-empty">
+              <div class="empty-icon" aria-hidden="true">📭</div>
+              <p data-i18n="history.empty">No scans yet. Start by analyzing a product!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── VIEW: SETTINGS ─────────────────────────────── -->
+      <section class="view" id="view-settings" role="region" aria-labelledby="settings-heading">
+        <div class="view-scroll">
+          <h2 id="settings-heading" style="margin-bottom: var(--space-8)" data-i18n="settings.title">Settings</h2>
+
+          <!-- Profile Card -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3 class="settings-card-title"><span aria-hidden="true">👤</span> <span data-i18n="settings.profile.title">Profile</span></h3>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-name" data-i18n="settings.profile.name">Your Name</label>
+              <input type="text" id="profile-name" class="form-input" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profile-age" data-i18n="settings.profile.age">Age</label>
+              <input type="number" id="profile-age" class="form-input" min="1" max="120" />
+              <p class="form-hint" data-i18n="settings.profile.age.hint">Used to flag ingredients unsafe for children under 13</p>
+            </div>
+            <button class="btn btn-primary" id="save-profile-btn">
+              <span aria-hidden="true">✓</span> <span data-i18n="settings.profile.save">Save Profile</span>
+            </button>
+          </div>
+
+          <!-- Language Card -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3 class="settings-card-title"><span aria-hidden="true">🌐</span> <span data-i18n="settings.language.title">Language</span></h3>
+            </div>
+            <div class="lang-toggle-group" role="group" aria-label="Select language">
+              <button class="lang-btn" id="lang-en" data-lang="en" aria-pressed="true"><span aria-hidden="true">🇬🇧</span> English</button>
+              <button class="lang-btn" id="lang-th" data-lang="th" aria-pressed="false"><span aria-hidden="true">🇹🇭</span> ภาษาไทย</button>
+            </div>
+          </div>
+
+          <!-- Appearance (mobile only) -->
+          <div class="settings-card mobile-only">
+            <div class="settings-card-header">
+              <h3 class="settings-card-title"><span aria-hidden="true">🎨</span> <span data-i18n="settings.theme.title">Appearance</span></h3>
+            </div>
+            <div class="settings-row">
+              <span data-i18n="settings.theme.darkMode">Dark Mode</span>
+              <label class="toggle-switch" for="theme-switch-mobile">
+                <input type="checkbox" id="theme-switch-mobile" role="switch" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Daily Routine -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3 class="settings-card-title"><span aria-hidden="true">📅</span> <span data-i18n="settings.routine.title">Daily Routine</span></h3>
+            </div>
+            <div class="routine-add-form">
+              <input type="text" id="routine-product-input" class="form-input" aria-label="Product name" placeholder="Product name…" />
+              <button class="btn btn-secondary" id="add-routine-btn">
+                <span aria-hidden="true">+</span> <span data-i18n="settings.routine.add">Add</span>
+              </button>
+            </div>
+            <div class="routine-list" id="routine-list" role="list">
+              <div class="empty-state" id="routine-empty">
+                <div class="empty-icon" aria-hidden="true">🧴</div>
+                <p data-i18n="settings.routine.empty">No products in your routine yet</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- About -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3 class="settings-card-title"><span aria-hidden="true">ℹ️</span> <span data-i18n="settings.about.title">About</span></h3>
+            </div>
+            <p class="settings-about-text" data-i18n="settings.about.text">ChaeCheck uses a local database of cosmetic ingredients. For medical advice, consult a qualified dermatologist.</p>
+            <p class="settings-version">Version 5.7.0 · 970+ INCI ingredients</p>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ══ MOBILE BOTTOM NAV ════════════════════════════════ -->
+  <nav class="bottom-nav" id="bottom-nav" role="navigation" aria-label="Mobile navigation">
+    <button class="bottom-nav-item active" data-view="scanner" id="bnav-scanner" aria-current="page">
+      <span class="bnav-icon" aria-hidden="true">🔍</span>
+      <span class="bnav-label" data-i18n="nav.search">Search</span>
+    </button>
+    <button class="bottom-nav-item" data-view="history" id="bnav-history">
+      <span class="bnav-icon" aria-hidden="true">📋</span>
+      <span class="bnav-label" data-i18n="nav.history">History</span>
+    </button>
+    <button class="bottom-nav-item" data-view="settings" id="bnav-settings">
+      <span class="bnav-icon" aria-hidden="true">⚙️</span>
+      <span class="bnav-label" data-i18n="nav.settings">Settings</span>
+    </button>
+  </nav>
+
+  <!-- ══ INGREDIENT DETAIL MODAL ══════════════════════════ -->
+  <div class="modal-overlay modal-overlay--hidden" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-ingredient-name">
+    <div class="modal" id="ingredient-modal">
+      <button class="modal-close" id="modal-close" aria-label="Close" onclick="Scanner.closeModal()">✕</button>
+      <div class="modal-risk-banner" id="modal-risk-banner"></div>
+      <div class="modal-body">
+        <h3 class="modal-ingredient-name" id="modal-ingredient-name"></h3>
+        <div class="modal-meta" id="modal-meta"></div>
+        <div class="modal-section" id="modal-purpose-section">
+          <h4 class="modal-section-title" data-i18n="modal.purpose">Purpose</h4>
+          <p id="modal-purpose"></p>
+        </div>
+        <div class="modal-section" id="modal-desc-section">
+          <h4 class="modal-section-title" data-i18n="modal.description">What is it?</h4>
+          <p id="modal-description"></p>
+        </div>
+        <div class="modal-section" id="modal-concerns-section">
+          <h4 class="modal-section-title" data-i18n="modal.concerns">Safety Concerns</h4>
+          <ul id="modal-concerns" class="modal-concerns-list"></ul>
+        </div>
+        <div class="modal-warnings-row" id="modal-warnings-row"></div>
+        <button class="btn btn-ghost btn-full modal-footer-close" onclick="Scanner.closeModal()">✕ Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TOAST ════════════════════════════════════════════ -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true" hidden></div>
+
+  <!-- App modules -->
+  <script src="js/theme.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/scanner.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/routine.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
+
